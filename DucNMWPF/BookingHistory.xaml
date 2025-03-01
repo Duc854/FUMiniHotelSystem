@@ -1,0 +1,24 @@
+﻿<Window x:Class="DucNMWPF.BookingHistory"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DucNMWPF"
+        mc:Ignorable="d"
+        Title="BookingHistory" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <StackPanel>
+            <TextBlock Text="Lịch sử đặt phòng" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+            <DataGrid x:Name="dgReports" Grid.Row="1" AutoGenerateColumns="False" Margin="10">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Mã đặt phòng" Binding="{Binding BookingReservationId}" Width="50"/>
+                    <DataGridTextColumn Header="Ngày đặt phòng" Binding="{Binding BookingDate}" Width="150"/>
+                    <DataGridTextColumn Header="Số phòng" Binding="{Binding RoomNumber}" Width="100"/>
+                    <DataGridTextColumn Header="Ngày nhận" Binding="{Binding StartDate}" Width="120"/>
+                    <DataGridTextColumn Header="Ngày trả" Binding="{Binding EndDate}" Width="120"/>
+                    <DataGridTextColumn Header="Tổng giá" Binding="{Binding TotalPrice}" Width="120"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+    </Grid>
+</Window>

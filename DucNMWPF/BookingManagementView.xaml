@@ -1,0 +1,40 @@
+﻿<Window x:Class="DucNMWPF.BookingManagementView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DucNMWPF"
+        mc:Ignorable="d"
+        Title="BookingManagementView" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Margin="10">
+            <TextBox x:Name="txtSearchKeyword" Width="200" Height="25"/>
+            <Button Content="Tìm kiếm" Width="100" Margin="5,0,0,0" Click="SearchButton_Click"/>
+            <Button Content="Thêm đặt phòng" Width="150" Margin="5,0,0,0" Click="AddButton_Click"/>
+        </StackPanel>
+        <DataGrid x:Name="dgBookings" Grid.Row="1" AutoGenerateColumns="False" Margin="10">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Mã đặt phòng" Binding="{Binding BookingReservationId}" Width="150"/>
+                <DataGridTextColumn Header="Ngày đặt" Binding="{Binding BookingDate}" Width="100"/>
+                <DataGridTextColumn Header="Khách hàng" Binding="{Binding CustomerId}" Width="100"/>
+                <DataGridTextColumn Header="Tổng tiền" Binding="{Binding TotalPrice}" Width="200"/>
+                <DataGridTextColumn Header="Trạng thái" Binding="{Binding BookingStatus}" Width="80"/>
+                <DataGridTemplateColumn Header="Hành động" Width="170">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Content="Sửa" Width="50" Margin="5,0,0,0" Click="EditButton_Click"/>
+                                <Button Content="Xóa" Width="50" Margin="5,0,0,0" Click="DeleteButton_Click"/>
+                                <Button Content="Chi tiết" Width="50" Margin="5,0,0,0" Click="DetailButton_Click"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
